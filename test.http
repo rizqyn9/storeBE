@@ -1,0 +1,6 @@
+
+###
+GET {{host}}
+
+###
+GET {{host}}/api
