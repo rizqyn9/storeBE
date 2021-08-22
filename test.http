@@ -4,3 +4,29 @@ GET {{host}}
 
 ###
 GET {{host}}/api
+
+###
+GET {{host}}/api/product
+
+###
+POST {{host}}/api/product/add
+Content-Type: application/json
+
+{
+  "productName": "haha",
+  "productTotal": 1,
+  "imgURL": [
+    "image.png",
+    "haha.png"
+  ],
+  "category": [
+    "cat1",
+    "cat2"
+  ],
+  "productPriceList": [
+    {
+      "size": 1,
+      "price": 20000
+    }
+  ]
+}

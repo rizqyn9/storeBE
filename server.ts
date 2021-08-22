@@ -1,23 +1,19 @@
 import "dotenv/config"
 import express from 'express'
-import mongoose from 'mongoose'
+import MongoConnect from "./utils/MongoConnect";
 import Dashboard from './router/dashboad.route'
 import IndexRouter from './router/index.router'
 import {validateENV} from './utils/envValidation'
 
 // validate ENV
-validateENV();
+const valid = validateENV();
 
-//Connect to DB
-// @ts-ignore
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-}).then(() => {
-    console.log("Connected to database")
-})
+// Mongo connect
+MongoConnect.connect()
 
 const app = express()
+
+app.use(express.json())
 
 app.get('/', Dashboard)
 app.use('/api', IndexRouter)

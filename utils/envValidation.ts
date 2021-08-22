@@ -3,8 +3,14 @@ import {
 } from 'envalid'
 
 export function validateENV() {
-    cleanEnv(process.env, {
+    return cleanEnv(process.env, {
         PORT:port(),
         MONGODB_URI:str()
     })
 }
+
+export const useENV = cleanEnv(process.env, {
+    PORT:port(),
+    MONGODB_URI:str()
+})
+
